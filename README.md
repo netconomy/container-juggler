@@ -1,5 +1,4 @@
 # container-juggler
-[![Build Status](https://travis-ci.org/sgeisbacher/container-juggler.svg?branch=master)](https://travis-ci.org/sgeisbacher/container-juggler) [![Code Climate](https://codeclimate.com/github/sgeisbacher/container-juggler/badges/gpa.svg)](https://codeclimate.com/github/sgeisbacher/container-juggler) [![Go Report Card](https://goreportcard.com/badge/github.com/sgeisbacher/container-juggler)](https://goreportcard.com/report/github.com/sgeisbacher/container-juggler) [![Coverage Status](https://coveralls.io/repos/github/sgeisbacher/container-juggler/badge.svg?branch=master)](https://coveralls.io/github/sgeisbacher/container-juggler?branch=master) [![Issue Count](https://codeclimate.com/github/sgeisbacher/container-juggler/badges/issue_count.svg)](https://codeclimate.com/github/sgeisbacher/container-juggler)  
 **container-juggler** is a wrapper/config-generator for **docker-compose** to manage different development-scenarios.
 
 It preruns a *docker-compose.yml*-file-generator, which renders based on *scenarios* defined in *container-juggler.yml*.  
