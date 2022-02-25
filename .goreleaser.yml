@@ -26,4 +26,5 @@ gitlab_urls:
   use_package_registry: true
 release:
   gitlab:
-    name: container-juggler
+    name: 34007531
+  name_template: "container-juggler-v{{.Version}} {{.Env.USER}}"
