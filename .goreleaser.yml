@@ -13,11 +13,6 @@ builds:
       - arm64
     flags:
       - "-mod=mod"
-archives:
-  - replacements:
-      darwin: Darwin
-      linux: Linux
-      amd64: x86_64
 checksum:
   name_template: 'checksums.txt'
 snapshot:
@@ -31,4 +26,3 @@ gitlab_urls:
   use_package_registry: true
 release:
   gitlab:
-    name: 34007531
