@@ -9,7 +9,7 @@ include:
 #      - 'markup/markdownlint.gitlab-ci.yml'
       - 'sourcecode/golang-ci-lint.gitlab-ci.yml'
 
-image: golang:1.17-alpine
+image: golang:1.18-alpine
 
 .build:
   stage: build
