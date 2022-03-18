@@ -1,6 +1,6 @@
 include:
   - project: 'netconomy/cxbuild/build-templates'
-    ref: v0.0.1
+    ref: v0.1.0
     file:
       - 'triggers.yml'
   - project: 'netconomy/spqx-tools/linter-templates'
