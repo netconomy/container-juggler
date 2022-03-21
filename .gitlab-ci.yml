@@ -13,6 +13,8 @@ image: golang:1.18-alpine
 
 .build:
   stage: build
+  before_script:
+    - apk add --no-cache git
   script:
     - go build
 
