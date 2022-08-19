@@ -4,7 +4,7 @@ include:
     file:
       - 'triggers.yml'
   - project: 'netconomy/spqx-tools/linter-templates'
-    ref: 0.2.0
+    ref: 0.3.0
     file:
 #      - 'markup/markdownlint.gitlab-ci.yml'
       - 'sourcecode/golang-ci-lint.gitlab-ci.yml'
