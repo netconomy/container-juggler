@@ -1,5 +1,6 @@
 {
   "extends": [
-  "gitlab>netconomy/gitlabmgmt/renovate-config:renovate_all"
+    "gitlab>netconomy/gitlabmgmt/renovate-config:renovate_all",
+    ":dependencyDashboard"
   ]
 }
