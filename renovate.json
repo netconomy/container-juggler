@@ -2,5 +2,6 @@
   "extends": [
     "gitlab>netconomy/gitlabmgmt/renovate-config:renovate_all",
     ":dependencyDashboard"
-  ]
+  ],
+  "dependencyDashboardApproval": true
 }
