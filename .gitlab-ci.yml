@@ -4,12 +4,12 @@ include:
     file:
       - 'triggers.yml'
   - project: 'netconomy/spqx-tools/linter-templates'
-    ref: 0.3.0
+    ref: 0.6.0
     file:
 #      - 'markup/markdownlint.gitlab-ci.yml'
       - 'sourcecode/golang-ci-lint.gitlab-ci.yml'
 
-image: golang:1.18-alpine
+image: golang:1.20-alpine
 
 .build:
   stage: build
