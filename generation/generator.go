@@ -143,8 +143,16 @@ func (g Generator) addExtraHosts(serviceMap map[string]interface{}, missingServi
 	}
 	extraHosts := []string{}
 	for _, svc := range missingServices {
-		ipAddr := g.ipDetector.Detect()
-		extraHosts = append(extraHosts, fmt.Sprintf("%v:%v", svc, ipAddr.String()))
+		ipForMissingServices := viper.GetString("ipForMissingServices")
+		ipAddress := ""
+		if ipForMissingServices != "" {
+			ipAddress = ipForMissingServices
+		} else {
+			ipAddr := g.ipDetector.Detect()
+			ipAddress = ipAddr.String()
+		}
+		fmt.Printf("IP for missing service %s: %s\n", svc, ipAddress)
+		extraHosts = append(extraHosts, fmt.Sprintf("%v:%v", svc, ipAddress))
 	}
 	serviceMap["extra_hosts"] = extraHosts
 }
