@@ -309,22 +309,42 @@ scenarios:
 	}
 }
 
-func TestAddExtraHosts(t *testing.T) {
+func TestAddExtraHostsWithIPDetection(t *testing.T) {
 	RegisterTestingT(t)
+	testAddExtraHosts("")
+}
 
+func TestAddExtraHostsWithCustomIP(t *testing.T) {
+	RegisterTestingT(t)
+	testAddExtraHosts("172.16.0.2")
+}
+
+func testAddExtraHosts(ipForMissingServices string) {
 	ipDetectorMock := mocks.IPDetectorMock{}
-	ipDetectorMock.DetectCall.Returns = net.ParseIP("192.168.10.115")
+	detectedIPMock := "192.168.10.115"
+	ipDetectorMock.DetectCall.Returns = net.ParseIP(detectedIPMock)
 
 	generator := Generator{
 		ipDetector: ipDetectorMock,
 	}
 
+	ipAddress := ""
+	if ipForMissingServices != "" {
+		viper.Set("ipForMissingServices", ipForMissingServices)
+		ipAddress = ipForMissingServices
+	} else {
+		ipAddress = detectedIPMock
+	}
+
+	appIPAddress := fmt.Sprintf("app:%s", ipAddress)
+	dbIPAddress := fmt.Sprintf("db:%s", ipAddress)
+
 	tableTestData := []struct {
 		missingServices    []string
 		expectedExtraHosts []string
 	}{
-		{[]string{"app"}, []string{"app:192.168.10.115"}},
-		{[]string{"app", "db"}, []string{"app:192.168.10.115", "db:192.168.10.115"}},
+		{[]string{"app"}, []string{appIPAddress}},
+		{[]string{"app", "db"}, []string{appIPAddress, dbIPAddress}},
 		{[]string{}, nil},
 	}
 

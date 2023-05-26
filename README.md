@@ -4,7 +4,7 @@
 It preruns a *docker-compose.yml*-file-generator, which renders based on *scenarios* defined in *container-juggler.yml*.  
 This means you define multiple *scenarios* (scenario *all* is required, which is also the base for other scenarios).  
 Other scenarios must be subsets of the *all*-scenario.  
-The renderer will detect missing services by diffing the selected with the all-*scenario* and adds them as */etc/hosts*-entries (via docker's extra-hosts-option) in each of the services. So requests to missing services will be routed to your host-machine.  
+The renderer will detect missing services by diffing the selected with the all-*scenario* and adds them as */etc/hosts*-entries (via docker's extra-hosts-option) in each of the services. So requests to missing services will be routed to your host-machine. If you wish not to automatically detect the IP for your extra hosts, you can add the *-ip-for-missing-services* param which will override it.
 Now you are able to run parts of your multi-tier-application directly on your host-machine (parts you're currently working on) and all others in docker with docker-compose.  
 
 ## Installation
@@ -104,16 +104,16 @@ container-juggler run all
 ## Development setup
 
 In order to use the same versions of the dependencies we provide a
-`vendor/vendor.json` file which you can use with [govendor][]
+`vendor/vendor.json` file which you can use with [go mod][]
 
 ```bash
-govendor sync
+go mod vendor
 ```
 
 Once you have all dependencies inside the `vendor` folder, you can run the tests
 with `make test`.
 
-[govendor]: https://github.com/kardianos/govendor
+[go mod]: https://go.dev/ref/mod#go-mod-vendor
 
 ## TODOS
 

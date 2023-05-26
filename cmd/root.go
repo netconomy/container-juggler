@@ -9,6 +9,7 @@ import (
 )
 
 var cfgFile string
+var ipForMissingServices string
 
 var rootCmd = &cobra.Command{
 	Use:   "container-juggler",
@@ -29,6 +30,11 @@ func Execute() {
 
 func init() {
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is ./container-juggler.yml)")
+	rootCmd.PersistentFlags().StringVar(&ipForMissingServices, "ip-for-missing-services", "", "custom ip for missing services")
+	err := viper.BindPFlag("ipForMissingServices", rootCmd.PersistentFlags().Lookup("ip-for-missing-services"))
+	if err != nil {
+		fmt.Println("Could not bind flag ip-for-missing-services")
+	}
 }
 
 func initConfig() {
