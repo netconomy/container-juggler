@@ -6,7 +6,7 @@ include:
   - project: 'netconomy/spqx-tools/linter-templates'
     ref: 0.6.0
     file:
-#      - 'markup/markdownlint.gitlab-ci.yml'
+      - 'markup/yamllint.gitlab-ci.yml'
       - 'sourcecode/golang-ci-lint.gitlab-ci.yml'
 
 image: golang:1.20-alpine
