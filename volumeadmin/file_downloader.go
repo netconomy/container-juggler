@@ -3,7 +3,6 @@ package volumeadmin
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"os"
 
@@ -13,7 +12,7 @@ import (
 type FileDownloader struct{}
 
 func (fd FileDownloader) Download(source string) (*os.File, error) {
-	tmpFile, err := ioutil.TempFile("", "download")
+	tmpFile, err := os.CreateTemp("", "download")
 	if err != nil {
 		return nil, err
 	}
@@ -25,6 +24,9 @@ func (fd FileDownloader) Download(source string) (*os.File, error) {
 		content, err = fromHTTP(source)
 	} else if _, err := os.Stat(source); err == nil {
 		content, err = fromFileSystem(source)
+		if err != nil {
+			fmt.Println("Unhandled error, getting file from filesystem after download: ", err)
+		}
 	} else {
 		return nil, fmt.Errorf("Source is neither a valid url nor a valid file path: %s", source)
 	}

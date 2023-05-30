@@ -1,6 +1,10 @@
 # container-juggler
 **container-juggler** is a wrapper/config-generator for **docker-compose** to manage different development-scenarios.
 
+> :Note: This is a fork maintained by Netconomy.  
+> Build with up to date go version and slightly updated dependencies.  
+> Compatible with ARM on MacOS.
+
 It preruns a *docker-compose.yml*-file-generator, which renders based on *scenarios* defined in *container-juggler.yml*.  
 This means you define multiple *scenarios* (scenario *all* is required, which is also the base for other scenarios).  
 Other scenarios must be subsets of the *all*-scenario.  
