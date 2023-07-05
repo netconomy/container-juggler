@@ -13,6 +13,7 @@ include:
     file:
       - "Netconomy-SBOM-go.gitlab-ci.yml"
 
+
 image: golang:1.20-alpine
 
 .build:
