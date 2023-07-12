@@ -8,6 +8,11 @@ include:
     file:
       - 'markup/yamllint.gitlab-ci.yml'
       - 'sourcecode/golang-ci-lint.gitlab-ci.yml'
+  - project: netconomy/security-tools/gitlab-ci-templates
+    ref: 3.2.0
+    file:
+      - "Netconomy-SBOM-go.gitlab-ci.yml"
+      - "Netconomy-SBOM-upload.gitlab-ci.yml"
 
 image: golang:1.20-alpine
 
