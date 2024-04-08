@@ -9,7 +9,7 @@ It preruns a *docker-compose.yml*-file-generator, which renders based on *scenar
 This means you define multiple *scenarios* (scenario *all* is required, which is also the base for other scenarios).  
 Other scenarios must be subsets of the *all*-scenario.  
 The renderer will detect missing services by diffing the selected with the all-*scenario* and adds them as */etc/hosts*-entries (via docker's extra-hosts-option) in each of the services. So requests to missing services will be routed to your host-machine. If you wish not to automatically detect the IP for your extra hosts, you can add the *-ip-for-missing-services* param which will override it.
-Now you are able to run parts of your multi-tier-application directly on your host-machine (parts you're currently working on) and all others in docker with docker-compose.  
+Now you are able to run parts of your multi-tier-application directly on your host-machine (parts you're currently working on) and all others in docker with docker compose.  
 
 ## Installation
 todo
@@ -34,7 +34,7 @@ ports:
 ```
 ## Additional Configuration
 ### volume-init
-If you run *docker-compose up* your database and all other docker-volumes will be empty. So you may want to provide initial-data-zips for your docker-volumes.  
+If you run *docker compose up* your database and all other docker-volumes will be empty. So you may want to provide initial-data-zips for your docker-volumes.  
 *container-juggler init* will download the specified zip and extracts it to your specified target-dir. If target-dir is not empty, *container-juggler* will skip this volume-init.  
 You can define a *volume-init*-section in your *container-juggler.yml* to achieve that, e.g.:
 

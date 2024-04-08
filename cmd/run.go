@@ -10,13 +10,13 @@ import (
 
 var runCmd = &cobra.Command{
 	Use:   "run",
-	Short: "runs 'docker-compose up'",
+	Short: "runs 'docker compose up'",
 	Run: func(cmd *cobra.Command, args []string) {
-		path, err := exec.LookPath("docker-compose")
+		path, err := exec.LookPath("docker")
 		if err != nil {
 			log.Fatal(err)
 		}
-		dockerComposeCmd := exec.Command(path, "up")
+		dockerComposeCmd := exec.Command(path, "compose", "up")
 		dockerComposeCmd.Stdout = os.Stdout
 		dockerComposeCmd.Stderr = os.Stderr
 		dockerComposeCmd.Run()

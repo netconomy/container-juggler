@@ -14,7 +14,7 @@ var ipForMissingServices string
 var rootCmd = &cobra.Command{
 	Use:   "container-juggler",
 	Short: "container-juggler manages different environment-scenarios",
-	Long: `container-juggler manages different environment-scenarios for docker-compose. 
+	Long: `container-juggler manages different environment-scenarios for docker compose.
 it generates the 'docker-compose.yml'-file based on specified scenario. 
 	
 for missing-services in the specied scenario compared to 'all'-scenario, it adds 'extra-hosts'-entries to all other services. so your services running in docker will try to connect the missing services on your host-machine`,
