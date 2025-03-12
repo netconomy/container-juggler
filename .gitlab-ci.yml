@@ -13,6 +13,10 @@ include:
     file:
       - "Netconomy-SBOM-go.gitlab-ci.yml"
       - "Netconomy-SBOM-upload.gitlab-ci.yml"
+  - project: netconomy/security-tools/mandatory-ci-templates
+    ref: main
+    file:
+      - netconomy-base.gitlab-ci.yml
 
 image: golang:1.20-alpine
 
@@ -34,6 +38,7 @@ build:ci:
   extends:
     - .build
     - .trigger-longliving
+
 build:mr:
   extends:
     - .build
@@ -43,6 +48,7 @@ test:ci:
   extends:
     - .test
     - .trigger-longliving
+
 test:mr:
   extends:
     - .test
@@ -62,7 +68,6 @@ _lint:golang-ci-lint:
     # generate a changelog.
     GIT_DEPTH: 0
     GORELEASER_ARGS: ''
-
   script: |
     echo $PWD
     # GITLAB_TOKEN is needed to create GitLab releases.
